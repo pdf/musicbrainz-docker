@@ -152,9 +152,9 @@ sub REPLICATION_ACCESS_TOKEN { "" }
 # Additionally you should set the environment variable
 # MUSICBRAINZ_USE_PROXY=1 when using a reverse proxy to make the server
 # aware of it when generating things like the canonical url in catalyst.
-sub WEB_SERVER                { "mb:5000" }
+sub WEB_SERVER                { "mb.streamboat.io" }
 # Relevant only if SSL redirects are enabled
-# sub WEB_SERVER_SSL            { "localhost" }
+sub WEB_SERVER_SSL            { "mb.streamboat.io" }
 sub LUCENE_SERVER             { "search:8080" }
 # Used, for example, to have emails sent from the beta server list the
 # main server
