@@ -18,7 +18,7 @@ RUN apt-get update && \
 
 RUN git clone --recursive https://github.com/metabrainz/musicbrainz-server.git musicbrainz-server && \
     cd musicbrainz-server && \
-    git checkout v-2017-05-15-schema-change
+    git checkout v-2017-10-31
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
@@ -54,11 +54,9 @@ RUN cd /musicbrainz-server/ && npm i \
     && eval $( perl -Mlocal::lib) && /musicbrainz-server/script/compile_resources.sh
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN rm /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /musicbrainz-server/admin/nginx/mbserver-rewrites.conf /etc/nginx/
 RUN ln -s /etc/nginx/sites-available/001-musicbrainz /etc/nginx/sites-enabled/
-RUN ln -s /musicbrainz-server/admin/nginx/nginx.conf /etc/nginx/
 RUN crontab /crons.conf
 
 VOLUME  ["/media/dbdump"]

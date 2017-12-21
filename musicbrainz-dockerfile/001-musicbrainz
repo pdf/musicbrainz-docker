@@ -3,7 +3,6 @@ server {
     # include site-name.conf;
 
     access_log  /var/log/nginx/001-musicbrainz.access.log;
-    access_log  /var/log/nginx/001-musicbrainz.proxy.log proxylog;
     error_log   /var/log/nginx/001-musicbrainz.error.log notice;
 
     location /static/ {
